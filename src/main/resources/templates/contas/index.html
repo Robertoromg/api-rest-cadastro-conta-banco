@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.ultraq.net.nz/thymeleaf/layout" >
+<head>
+<meta charset="utf-8">
+<title>Registro de Contas</title>
+
+</head>
+<body>
+	<h1>Lista de contas</h1>
+	<h3 ><a href="/cadastrarClientes">registrar cliente</a></h3>
+	
+	<div th:each="conta : ${contas}">
+	<div class="row">
+		<p><span th:text="${conta.nome}"></span>></p>
+		<p><span th:text="${conta.email}"></span></p>
+		<p><span th:text="${conta.cpf}"></span></p>
+		<p><span th:text="${conta.data_nascimento}"></span></p>
+	</div>
+	</div>
+	
+</body>
+</html>
