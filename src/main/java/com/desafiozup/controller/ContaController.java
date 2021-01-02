@@ -36,6 +36,7 @@ public class ContaController {
 			return "redirect:/cadastrarClientes";
 		}
 		cr.save(conta);
+		attributes.addFlashAttribute("mensagem", "Cliente adicionado com sucesso!");
 		return "redirect:/cadastrarClientes";
 	}
 	
@@ -56,8 +57,6 @@ public class ContaController {
 		mv.addObject("contas", contas);
 		return mv;
 	}
-	
-
 	
 }
 	

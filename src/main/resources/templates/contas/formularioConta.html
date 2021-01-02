@@ -18,9 +18,9 @@
     <h1>Gerenciar contas:</h1>
     	<h3 ><a href="/contas" class="waves-effect waves-light btn"><i class="material-icons left">add_circle</i>Adicionar cliente</a></h3>
    
-  
+ <th:block th:include="contas/mensagemValidacao"></th:block>
 
-</th:block>
+
    
     	<form class="container" method="post">
     	<div class="row">
@@ -37,6 +37,9 @@
     		Data de Nascimento: <input type="date" value="" name="data_nascimento">
     	</div>
     	</div>
+    	
+
+
     		<button class="waves-effect waves-light btn" type="submit">Salvar</button>
     	</form>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

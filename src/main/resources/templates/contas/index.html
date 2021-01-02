@@ -18,11 +18,12 @@
 	<h1>Histórico de clientes</h1>
 	<h3 ><a href="/cadastrarClientes" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>registrar cliente</a></h3>
 	
-	<th:block th:include="mensagemValidacao"></th:block>
+	
 	
 	<table class="container">
 		<thead>
 			<tr>
+			    <th>Id</th>
 				<th>Nome</th>
 				<th>Email</th>
 				<th>CPF</th>
@@ -32,7 +33,7 @@
 		</thead>
 		<tbody>
 	<tr th:each="conta : ${contas}">
-	
+		<td><span th:text="${conta.id}"></span></td>
 		<td><span th:text="${conta.nome}"></span></td>
 		<td><span th:text="${conta.email}"></span></td>
 		<td><span th:text="${conta.cpf}"></span></td>
