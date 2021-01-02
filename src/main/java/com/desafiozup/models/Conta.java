@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
@@ -21,12 +23,16 @@ public class Conta implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
+	@NotEmpty
 	private String nome;
 	
+	@NotEmpty
 	private String email;
 	
+	@NotEmpty
 	private String cpf;
 	
+	@NotEmpty
 	private String data_nascimento;
 
 	public long getId() {
