@@ -28,16 +28,23 @@ public class ContaController {
 		return "contas/formularioConta";
 	}
 	
-	
 	@RequestMapping(value="/cadastrarClientes", method=RequestMethod.POST)
-	public String form(@Valid Conta conta, BindingResult result, RedirectAttributes attributes){
+	public String formConta(@Valid Conta conta, BindingResult result, RedirectAttributes attributes){
 		if(result.hasErrors()){
 			attributes.addFlashAttribute("mensagem", "Verifique se os campos foram preenchidos!");
 			return "redirect:/cadastrarClientes";
 		}
+
 		cr.save(conta);
-		attributes.addFlashAttribute("mensagem", "Cliente adicionado com sucesso!");
+		attributes.addFlashAttribute("mensagem", "Cliente cadastrado com sucesso");
 		return "redirect:/cadastrarClientes";
+	}
+	
+	@RequestMapping(value="/cadastrarClientes", method=RequestMethod.PUT)
+	public String editarConta(long id){
+		Conta conta = cr.findById(id);
+		cr.save(conta);
+		return "/cadastrarClientes";
 	}
 	
 	@RequestMapping("/deletar")
@@ -46,7 +53,6 @@ public class ContaController {
 		cr.delete(conta);
 		return "redirect:/contas";
 	}
-	
 	
 	
 	
