@@ -1,17 +1,14 @@
 package com.desafiozup.models;
-
 import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @Entity
@@ -28,13 +25,12 @@ public class Conta implements Serializable{
 	@NotBlank
 	private String nome;
 	
-	@NotBlank(message = "{email.not.blank}")
-	@Email(message = "{email.not.valid}")
+	@NotBlank
+	@Email
 	private String email;
 	
 	@NotBlank
-	@Digits(integer=11, fraction=0)
-	@Size(min=11,max=11)
+	@CPF
 	private String cpf;
 	
 	@NotBlank

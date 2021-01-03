@@ -36,7 +36,7 @@ public class ContaController {
 	@RequestMapping(value="/cadastrarClientes", method=RequestMethod.POST)
 	public String formConta(@Valid Conta conta, BindingResult result, RedirectAttributes attributes){
 		if(result.hasErrors()){
-			attributes.addFlashAttribute("mensagem", "Verifique se os campos digitados ");
+			attributes.addFlashAttribute("mensagem", "Verifique os campos digitados ");
 			return "redirect:/cadastrarClientes";
 		}
 
