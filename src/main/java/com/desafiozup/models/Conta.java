@@ -7,8 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
-
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
@@ -23,16 +25,19 @@ public class Conta implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
-	@NotEmpty
+	@NotBlank
 	private String nome;
 	
-	@NotEmpty
+	@NotBlank(message = "{email.not.blank}")
+	@Email(message = "{email.not.valid}")
 	private String email;
 	
-	@NotEmpty
+	@NotBlank
+	@Digits(integer=11, fraction=0)
+	@Size(min=11,max=11)
 	private String cpf;
 	
-	@NotEmpty
+	@NotBlank
 	private String data_nascimento;
 
 	public long getId() {

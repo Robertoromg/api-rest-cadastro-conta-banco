@@ -23,6 +23,11 @@ public class ContaController {
 	@Autowired
 	private ContaRepository cr;
 	
+	@RequestMapping("/")
+	public String iniciar() {
+		return "contas/index";
+	}
+	
 	@RequestMapping(value="/cadastrarClientes", method=RequestMethod.GET)
 	public String form() {
 		return "contas/formularioConta";
@@ -31,7 +36,7 @@ public class ContaController {
 	@RequestMapping(value="/cadastrarClientes", method=RequestMethod.POST)
 	public String formConta(@Valid Conta conta, BindingResult result, RedirectAttributes attributes){
 		if(result.hasErrors()){
-			attributes.addFlashAttribute("mensagem", "Verifique se os campos foram preenchidos!");
+			attributes.addFlashAttribute("mensagem", "Verifique se os campos digitados ");
 			return "redirect:/cadastrarClientes";
 		}
 
