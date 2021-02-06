@@ -1,5 +1,7 @@
 package com.desafiozup.models;
 import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,18 +24,22 @@ public class Conta implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
-	@NotBlank
+	@Column(name="nome")
+	@NotBlank(message="O campo deve ser preenchido")
 	private String nome;
 	
-	@NotBlank
-	@Email
+	@Column(name="email")
+	@NotBlank(message="O campo deve ser preenchido")
+	@Email(message="Formato de email inválido")
 	private String email;
 	
-	@NotBlank
-	@CPF
+	@Column(name="cpf")
+	@NotBlank(message="O campo deve ser preenchido")
+	@CPF(message="Formato inválido")
 	private String cpf;
 	
-	@NotBlank
+	@Column(name="data_nacimento")
+	@NotBlank(message="O campo deve ser preenchido")
 	private String data_nascimento;
 
 	public long getId() {
